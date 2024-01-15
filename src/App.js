@@ -10,6 +10,7 @@ import { LuMapPin } from "react-icons/lu";
 
 //TODO: Ocultar Keyssssss
 
+
 function App() {
 
   const [weather, setWeather] = useState(null);
@@ -22,26 +23,25 @@ function App() {
     fetchWeatherData();
   }, [unity,location])
 
-  const getLocation = () => {
-    fetch('https://ipinfo.io/json?token=1d66f87a55769f')
-      .then(response => response.json())
-      .then(data => {
-        // Actualizar la ubicación y la ciudad
-        setLocation(data.city);
-        setCity(data.city);
+  const getLocation = async () => {
+    try {
+      const response = await fetch('https://ipinfo.io/json?token=1d66f87a55769f');
+      const data = await response.json();
+      
+      // Actualizar la ubicación y la ciudad
+      setLocation(data.city);
+      setCity(data.city);
   
-        // Actualizar la unidad de medida según la necesidad
-        // Puedes cambiar 'metric' a 'imperial' o viceversa según tu preferencia
-        setUnity('metric');
+      // Actualizar la unidad de medida según la necesidad
+      // Puedes cambiar 'metric' a 'imperial' o viceversa según tu preferencia
+      setUnity('metric');
   
-        // Actualizar los datos meteorológicos después de obtener la ubicación
-        fetchWeatherData();
-      })
-      .catch(error => {
-        console.error('Error fetching location:', error);
-      });
+      // Actualizar los datos meteorológicos después de obtener la ubicación
+      fetchWeatherData();
+    } catch (error) {
+      console.error('Error fetching location:', error);
+    }
   };
-  
   
 
 
