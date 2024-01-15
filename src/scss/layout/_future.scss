@@ -1,0 +1,27 @@
+.future{
+    background-color: $sectionOverlay;
+
+    .content{
+        display: flex;
+        justify-content:space-around;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        span{
+            
+            color: grey;
+        }
+        .card{
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            border-right:  0.1rem solid grey;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
+        & div:last-child{
+            border-right: none;
+        }
+    }
+}

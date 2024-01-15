@@ -1,0 +1,14 @@
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/_globales';
+@import 'base/mixins';
+@import 'layout/overlay';
+@import 'layout/descriptions';
+@import 'layout/future';
+
+footer{
+    color:white;
+    a{
+        color: inherit;
+    }
+}

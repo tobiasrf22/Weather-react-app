@@ -1,0 +1,82 @@
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: $backgroundOverlay;
+
+    .container {
+        max-width: 80rem;
+        margin: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 1.7rem;
+    }
+}
+
+/*Top*/
+.section {
+    width: 100%;
+    padding: 1.7rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.section_input,
+.section_temperature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $sectionOverlay;
+}
+
+.section_input {
+    input {
+        border: 0.8px solid white;
+        border-radius: 1rem;
+        background-color: transparent;
+        color: white;
+        padding: 1.2rem;
+        font-size: 2rem;
+        font-weight: 200;
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        padding: 1rem 5rem;
+        border: none;
+        border-radius: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+        background-color: white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: lightgrey;
+        }
+    }
+}
+.section_temperature {
+    display: flex;
+    justify-content: space-between;
+}
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 200;
+        text-transform: capitalize;
+    }
+}
+
+.temperature {
+    h1 {
+        font-size: 6rem;
+    }
+}
