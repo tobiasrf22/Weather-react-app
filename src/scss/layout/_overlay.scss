@@ -23,7 +23,6 @@
     color: white;
 }
 
-.section_input,
 .section_temperature {
     display: flex;
     align-items: center;
@@ -32,6 +31,24 @@
 }
 
 .section_input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $sectionOverlay;
+    
+    @include phone {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    @include pc {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
     input {
         border: 0.8px solid white;
         border-radius: 1rem;
@@ -44,6 +61,11 @@
             outline: none;
         }
     }
+    .input__buttons{
+        display: flex;
+        gap: 2rem;
+    }
+
     button {
         padding: 1rem 5rem;
         border: none;

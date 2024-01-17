@@ -4,7 +4,6 @@ import Descriptions from './components/Descriptions';
 import { useEffect } from 'react';
 import { getFormattedWeatherData } from './components/weatherService';
 import { useState } from 'react';
-import Future from './components/Future';
 import { LuMapPin } from "react-icons/lu";
 
 
@@ -21,28 +20,28 @@ function App() {
 
   useEffect(() => {
     fetchWeatherData();
-  }, [unity,location])
+  }, [unity, location])
 
   const getLocation = async () => {
     try {
       const response = await fetch('https://ipinfo.io/json?token=1d66f87a55769f');
       const data = await response.json();
-      
+
       // Actualizar la ubicación y la ciudad
       setLocation(data.city);
       setCity(data.city);
-  
+
       // Actualizar la unidad de medida según la necesidad
       // Puedes cambiar 'metric' a 'imperial' o viceversa según tu preferencia
       setUnity('metric');
-  
+
       // Actualizar los datos meteorológicos después de obtener la ubicación
       fetchWeatherData();
     } catch (error) {
       console.error('Error fetching location:', error);
     }
   };
-  
+
 
 
   const fetchWeatherData = async () => {
@@ -77,15 +76,17 @@ function App() {
                 {/*<input type="text" placeholder="product name" value={title} onChange={ev => setTitle(ev.target.value)}></input>*/}
                 <input type='text' name='city' value={city} placeholder='Enter City...' onChange={handleInputChange}
                   onKeyDown={handleKeyDown} />
-                <button id='gps' onClick={getLocation}><LuMapPin /></button>
-                <button
-                  onClick={changeUnity}
-                >{unity === 'metric' ? '°C' : '°F'}</button>
+                <div className='input__buttons'>
+                  <button id='gps' onClick={getLocation}><LuMapPin /></button>
+                  <button
+                    onClick={changeUnity}
+                  >{unity === 'metric' ? '°C' : '°F'}</button>
+                </div>
               </div>
               <div className='section section_temperature'>
                 <div className='icon'>
                   <h3>{weather.name}, {weather.country}</h3>
-                  <img src={weather.iconUrl} />
+                  <img src={weather.iconUrl} alt='icon'/>
                   <h3>{weather.description}</h3>
                 </div>
                 <div className='temperature'>
